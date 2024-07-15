@@ -9,6 +9,7 @@ module StringCalculator
     if negatives.any?
       raise "negatives not allowed: #{negatives.join(', ')}"
     end
+    nums.reject! { |num| num > 1000 }
     nums.sum
   end
 

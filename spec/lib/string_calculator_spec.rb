@@ -17,6 +17,11 @@ RSpec.describe StringCalculator do
         expect(StringCalculator.add("1\n2,3,4,5")).to eq(15)
       end
     end
+    context 'when big numbers > 1000 are provided' do
+      it 'ignore big numbers the sum of remaining numbers' do
+        expect(StringCalculator.add("1\n2,3000,4,5")).to eq(12)
+      end
+    end
 
     context 'when numbers are provided along with new delimiter mentioned in beginning' do
       it 'returns the sum of numbers' do
