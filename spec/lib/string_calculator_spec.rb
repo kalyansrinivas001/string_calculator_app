@@ -25,6 +25,13 @@ RSpec.describe StringCalculator do
       end
     end
 
+    context 'when -ve numbers are provided' do
+      it 'returns exception' do
+        expect { StringCalculator.add("//;\n1;-2;3") }.to raise_error("negatives not allowed: -2")
+        expect { StringCalculator.add("//;\n1;-2;-3") }.to raise_error("negatives not allowed: -2, -3")
+      end
+    end
+
     context 'when empty string is provided' do
       it 'returns 0' do
         expect(StringCalculator.add("")).to eq(0)

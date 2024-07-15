@@ -5,6 +5,10 @@ module StringCalculator
     numbers_without_delimiter = remove_delimiter_header(numbers)
     nums = numbers_without_delimiter.split(delimiter).map { |x| x.to_i }
     # nums = numbers.split(/[,\n]/).map{|x| x.to_i}
+    negatives = nums.select { |num| num < 0 }
+    if negatives.any?
+      raise "negatives not allowed: #{negatives.join(', ')}"
+    end
     nums.sum
   end
 
