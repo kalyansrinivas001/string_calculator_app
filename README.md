@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+How to run :
+  1.checkout the repo
+  2.navigate into the repo
+  3.do bundle install
+  4.run "rspec spec/lib/string_calculator_spec.rb" to run the test cases
+  5.run "rails c;" to give custom inputs
+    5.1 do " require 'string_calculator' " in rails console
+    5.2 do StringCalculator.add("1,2,3")
