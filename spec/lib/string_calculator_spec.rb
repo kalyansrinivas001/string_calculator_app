@@ -18,6 +18,13 @@ RSpec.describe StringCalculator do
       end
     end
 
+    context 'when numbers are provided along with new delimiter mentioned in beginning' do
+      it 'returns the sum of numbers' do
+        expect(StringCalculator.add("//;\n1;2")).to eq(3)
+        expect(StringCalculator.add("//k\n4k5k6")).to eq(15)
+      end
+    end
+
     context 'when empty string is provided' do
       it 'returns 0' do
         expect(StringCalculator.add("")).to eq(0)
