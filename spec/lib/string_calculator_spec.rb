@@ -34,6 +34,14 @@ RSpec.describe StringCalculator do
       it 'returns exception' do
         expect { StringCalculator.add("//;\n1;-2;3") }.to raise_error("negatives not allowed: -2")
         expect { StringCalculator.add("//;\n1;-2;-3") }.to raise_error("negatives not allowed: -2, -3")
+        expect {(StringCalculator.add("//[*][%]\n1*2%-3"))}.to raise_error("negatives not allowed: -3")
+      end
+    end
+
+    context 'when multiple flexi delimiters are provided' do
+      it 'returns sum' do
+        expect(StringCalculator.add("//[*][%]\n1*2%3")).to eq(6)
+        expect(StringCalculator.add("//[***][k][l]\n1l4***2k3")).to eq(10)
       end
     end
 
